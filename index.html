@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <title>Goodbooks Review</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- linking to js file is at the bottom so that the code can work -->
   </head>
 
   <body>
@@ -10,53 +11,44 @@
     <div id="loginSection" class="full-login">
       <h1>Goodbooks Review</h1>
 
-      <!-- login box container  -->
       <div class="login-box">
         <h2>Login</h2>
 
-        <!-- Username/Password input -->
         <label>Username:</label>
         <input type="text" id="usernameInput" />
 
         <label>Password:</label>
         <input type="password" id="passwordInput" />
-
-        <!-- Login button -->
         <button id="loginButton">Login</button>
 
-        <!-- Login error message -->
         <p id="loginMessage" class="message"></p>
-        <!-- Login hint (shoes after 3 failed attempts) -->
+        <!-- Hint will be given after 3 failed attempts -->
         <p id="loginHint" class="hint"></p>
       </div>
     </div>
 
-    <!-- Homepage (Hidden until you login) -->
+    <!-- Section for the HomePage -->
     <div id="mainSection" class="hidden">
 
       <div id="fullPage">
 
-        <!-- Navigation menu -->
+        <!--Fixed sidebar with all the other pages -->
         <div id="sidebar"> 
 
-          <!-- Profile picture + name -->
           <div class="profile-section">
             <img src="https://i.pinimg.com/1200x/14/71/d6/1471d61510a9664d89f7e2f1b3aad021.jpg" class="profile-picture"/>
             <p id="profileName">Syntax Sisters</p>
-
-            <!-- Buttons to navigate between pages -->
+            
          </div>
           <button class="nav-button" data-target="homeSection">Home</button>
           <button class="nav-button" data-target="searchSection"> Search Books </button>
           <button class="nav-button" data-target="previousSection"> Previous Reviews </button>
-          <!-- Logout button to return to login page -->
+          <!-- Sign out button (placed on the header) -->
           <button id="logoutButton" class="nav-button logout">Logout</button>
         </div>
 
-        <!-- Mainpage content -->
         <div id="mainContent">
 
-          <!-- Homepage / Write a review -->
           <div id="homeSection" class="content-section">
 
             <h2>Write a Review</h2>
@@ -80,46 +72,38 @@
               <option value="5">5 ★★★★★</option>
             </select>
 
-            <!-- Publish review button -->
             <button id="publishButton">Publish Review</button>
 
-            <!-- Publishing confirmation message -->
             <p id="publishMessage" class="message"></p>
           </div>
 
-          <!-- Search Books  -->
+          <!-- Search Books Page-->
           <div id="searchSection" class="content-section hidden">
             <h2>Search for a Book</h2>
 
-            <!-- Search form  -->
             <form id="searchForm">
               <input type="text" id="searchInput" placeholder="Search books... ex. Divergent" />
               <button id="searchButton" class="search-btn">Search</button>
             </form>
 
-            <!-- Error messages or 'no books found' -->
             <p id="searchMessage"></p>
 
-            <!-- Google books search results  -->
             <div id="searchResults"></div>
           </div>
 
-          <!-- Previous reviews -->
           <div id="previousSection" class="content-section hidden">
 
             <h2>Your Reviews</h2>
-            <!-- Previous reviews inserted from JS here -->
+            
             <div id="reviewsList"></div>
           </div>
 
-          <!-- end of mainContent -->
         </div>
 
-        <!-- end of fullPage -->
       </div>
 
-      <!-- end of mainSection -->
     </div>
+    <!-- linking to the js file -->
     <script src="script.js"defer="true"></script>
   </body>
 </html>
