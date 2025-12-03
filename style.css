@@ -1,4 +1,4 @@
-/* GLOBAL RESET + BASICS */
+/* wildcard so that it applies to everything */
 * {
     box-sizing: border-box;
 }
@@ -11,18 +11,17 @@ body {
     opacity: 0.95;
 }
 
-/* Class that hides pages when not clicked (for script.js) */
+/* Class that hides pages when not clicked */
 .hidden {
     display: none !important;
 }
 
-/* GENERIC TEXT */
+/* colour for all text*/
 h1, h2, h3, label, p {
     color: #1c2c45;
 }
 
-/* BACKGROUND + OVERLAYS SHARED */
-
+/* background for all the pages */
 .background {
     position: fixed;
     z-index: -1;
@@ -34,7 +33,7 @@ h1, h2, h3, label, p {
     object-fit: cover;
 }
 
-/* Login overlay: darker navy, 40% */
+/* overlay for the login page */
 #loginSection .blueOverlay {
     position: fixed;
     z-index: -1;
@@ -46,7 +45,6 @@ h1, h2, h3, label, p {
     background-color: #0c2751;
 }
 
-/* Main app overlay: slightly lighter navy, 50% */
 #mainSection .blueOverlay {
     position: fixed;
     z-index: -1;
@@ -58,9 +56,6 @@ h1, h2, h3, label, p {
     background-color: #2D3E5A;
 }
 
-/* Colour blocks for header/footer */
-
-/* Bottom colour block on LOGIN page */
 .loginFooterBlock {
     position: relative;
     box-sizing: border-box;
@@ -73,7 +68,7 @@ h1, h2, h3, label, p {
     z-index: 10;
 }
 
-/* Top colour block on MAIN app header */
+/* header (solid colour) */
 .mainHeaderBlock {
     position: fixed;
     box-sizing: border-box;
@@ -86,15 +81,10 @@ h1, h2, h3, label, p {
     z-index: 0;
 }
 
-/* ============================
-   LOGIN PAGE STYLING
-   ============================ */
-
 #loginSection {
     min-height: 100vh;
 }
 
-/* Top header image on login */
 .headerPic {
     position: relative;
     top: 0;
@@ -104,7 +94,6 @@ h1, h2, h3, label, p {
     z-index: 0;
 }
 
-/* Logo row */
 .logo {
     display: flex;
     flex-direction: row;
@@ -130,7 +119,7 @@ h1, h2, h3, label, p {
     z-index: 10;
 }
 
-/* Login form box */
+/* user input container for Login Page */
 .loginBox {
     position: relative;
     width: 35%;
@@ -147,7 +136,6 @@ h1, h2, h3, label, p {
     border: 2px solid #273955;
 }
 
-/* Labels inside login */
 .loginBox label {
     display: block;
     width: 70%;
@@ -156,7 +144,6 @@ h1, h2, h3, label, p {
     font-weight: bold;
 }
 
-/* Inputs on login */
 .loginBox input[type="text"],
 .loginBox input[type="password"] {
     font-family: 'Times New Roman', Times, serif;
@@ -169,7 +156,6 @@ h1, h2, h3, label, p {
     background-color: rgb(228, 227, 227);
 }
 
-/* Login button */
 #loginButton {
     margin-top: 10px;
     background-color: #8c94a2;
@@ -184,17 +170,16 @@ h1, h2, h3, label, p {
     cursor: pointer;
 }
 
-/* Login button hover effect */
+/* Login button will change colour when they hover over it */
 #loginButton:hover {
     background-color: #a8b0be;
 }
 
-/* Wrong password red border */
+/* The border will change to red when username and/or password is incorrect */
 input.input-error {
     border: 2px solid rgb(165, 12, 12) !important;
 }
 
-/* Login messages */
 .message {
     color: #333;
     margin-top: 10px;
@@ -204,10 +189,6 @@ input.input-error {
     color: #888;
     font-size: 0.9em;
 }
-
-/* ============================
-   MAIN APP (AFTER LOGIN)
-   ============================ */
 
 #mainSection {
     min-height: 100vh;
@@ -219,7 +200,6 @@ input.input-error {
     z-index: 1;
 }
 
-/* Logout button (top-right, like original header) */
 #logoutButton {
     background-color: rgba(172, 187, 215, 0.6);
     padding: 7px 20px 7px;
@@ -243,16 +223,11 @@ input.input-error {
     background-color: #94a5c2;
 }
 
-/* PAGE WRAPPER */
 .page {
     position: relative;
     width: 100%;
     min-height: 100vh;
 }
-
-/* ============================
-   SIDEBAR (GOODBOOKS STYLE)
-   ============================ */
 
 .sidebar {
     position: fixed;
@@ -289,7 +264,6 @@ input.input-error {
     padding: 5px;
 }
 
-/* Sidebar menu list */
 .sections {
     border-top: 3px solid rgba(45, 62, 90, 0.4);
     border-bottom: 3px solid rgba(45, 62, 90, 0.4);
@@ -303,7 +277,6 @@ input.input-error {
     margin-bottom: 40px;
 }
 
-/* Nav buttons styled like links */
 .nav-button {
     background: none;
     border: none;
@@ -316,10 +289,7 @@ input.input-error {
     cursor: pointer;
 }
 
-/* ============================
-   HOME / WRITE REVIEW SECTION
-   ============================ */
-
+/* So that all the parts for the main stay on one side */
 .main {
     position: relative;
     margin-left: 50vh;
@@ -327,7 +297,6 @@ input.input-error {
     width: 60vh;
 }
 
-/* Rating box */
 .ratesBox {
     position: relative;
     background-color: rgba(63, 85, 120, 0.4);
@@ -338,7 +307,6 @@ input.input-error {
     margin-bottom: 20px;
 }
 
-/* Review main box */
 .reviewBox {
     position: relative;
     background-color: rgba(63, 85, 120, 0.4);
@@ -349,7 +317,6 @@ input.input-error {
     height: 40vh;
 }
 
-/* Book title input */
 .bookTitle input {
     font-family: 'Times New Roman', Times, serif;
     color: #1c2c45;
@@ -363,13 +330,11 @@ input.input-error {
     background-color: rgb(231, 235, 243);
 }
 
-/* Labels */
 label {
     font-family: 'Times New Roman', Times, serif;
     color: #1c2c45;
 }
 
-/* Date input */
 .date input {
     font-family: 'Times New Roman', Times, serif;
     color: #1c2c45;
@@ -379,7 +344,6 @@ label {
     background-color: rgb(231, 235, 243);
 }
 
-/* Comment textarea */
 .commentBox textarea {
     width: 97%;
     min-height: 23vh;
@@ -394,7 +358,7 @@ label {
     resize: vertical;
 }
 
-/* Star rating select */
+/* Star-rating */
 #ratingInput {
     font-family: 'Times New Roman', Times, serif;
     color: #1c2c45;
@@ -406,7 +370,6 @@ label {
     width: 100%;
 }
 
-/* Publish button (same feel as original) */
 #publishButton {
     margin-left: 85vh;
     margin-top: 10px;
@@ -427,10 +390,6 @@ label {
 #publishButton:hover {
     background-color: rgba(63, 85, 120, 0.9);
 }
-
-/* ============================
-   SEARCH SECTION
-   ============================ */
 
 .search-section {
     position: relative;
@@ -453,7 +412,6 @@ label {
     margin-bottom: 25px;
 }
 
-/* Search input */
 #searchInput {
     flex: 1;
     padding: 10px 14px;
@@ -465,7 +423,6 @@ label {
     color: #05142b;
 }
 
-/* Search button */
 #searchButton,
 .search-btn {
     padding: 9px 20px;
@@ -488,7 +445,7 @@ label {
     margin-top: 10px;
 }
 
-/* One book result card */
+/* Layout of all search result cards */
 .book-result {
     display: flex;
     gap: 15px;
@@ -499,7 +456,7 @@ label {
     margin-bottom: 15px;
 }
 
-/* Book cover */
+/* manipulating the book cover that is given */
 .book-result img {
     width: 90px;
     height: 130px;
@@ -509,12 +466,10 @@ label {
     flex-shrink: 0;
 }
 
-/* Book info container */
 .book-info {
     flex: 1;
 }
 
-/* Classes set by script.js for search results */
 .book-title {
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
@@ -537,7 +492,6 @@ label {
     line-height: 1.4;
 }
 
-/* "Use this book" button in search results */
 .use-book-btn {
     margin-top: 8px;
     padding: 5px 10px;
@@ -554,16 +508,11 @@ label {
     background-color: rgba(63, 85, 120, 1);
 }
 
-/* ============================
-   PREVIOUS REVIEWS SECTION
-   ============================ */
-
 #previousSection {
     margin-left: 50vh;
     width: 110vh;
 }
 
-/* Review cards created by showSavedReviews() */
 .review-card {
     border: 2px solid rgba(45, 62, 90, 0.7);
     padding: 10px;
@@ -573,7 +522,6 @@ label {
     display: flex;
 }
 
-/* Book cover in previous reviews */
 .review-cover {
     width: 80px;
     height: auto;
@@ -583,7 +531,6 @@ label {
     background-color: rgb(200, 210, 226);
 }
 
-/* Review text details */
 .review-details {
     flex: 1;
 }
@@ -602,7 +549,7 @@ label {
 
 .review-rating {
     margin-top: 4px;
-    color: #f1c40f; /* yellow stars */
+    color: #f1c40f; /* yellow stars seen in the Previous Reviews Page */
 }
 
 .review-text {
