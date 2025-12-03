@@ -7,7 +7,7 @@ let attempts = 0;
 // cover saved internally ( when the user saves a book review, the cover gets stored here) 
 let selectedCover = ""; 
 
-// Sections - to hide he other pages when not interacted wiith 
+// Sections - to hide he other pages when not interacted with 
 const loginSection = document.getElementById("loginSection");
 const mainSection = document.getElementById("mainSection");
 
@@ -21,13 +21,25 @@ const loginHint = document.getElementById("loginHint");
 //URL where we will send our data
 const apiUrl = 'http://localhost:8080/booktitle';
 
+/* 
+Preconditions:
+- User enters a book title into the search bar
+- setupBookSearch() calls sendResultTitle(title)
+
+Post conditions:
+- Console prints:
+      sendResultTitle() WAS CALLED with: <title>
+- Console prints server reply:
+      Backend replied: { message, receivedTitle }
+*/
+
 //This function will send the searched book title to the back end.
 function sendResultTitle( title ) {
 console.log("sendResultTitle() WAS CALLED with:", title);
 
   const url = apiUrl + '?title=' + encodeURIComponent(title);
   fetch(url).then(response => {
-    //If there server reports a problem, throw an error!
+    //If the server reports a problem, throw an error!
     if (!response.ok) { 
       throw new Error('Network response was not ok');
     }
@@ -85,8 +97,15 @@ logoutButton.addEventListener("click", function () {
     loginSection.classList.remove("hidden");
 });
 
-//menu navigation 
+/* 
+Preconditions:
+- User clicks a navigation button with a 'data-target'
 
+Post conditions:
+- All content sections become hidden
+- The selected section becomes visible
+*/
+//menu navigation 
 function setupNavigation() {
     // Select all the Menu buttons ( Home, Search, Previous Reveiws)
     const navButtons = document.querySelectorAll(".nav-button");
@@ -104,11 +123,22 @@ function setupNavigation() {
         });
     });
 }
-
 setupNavigation();
 
-//Googe books api
+/* 
+Preconditions:
+- User types a book title into 'searchInput'
 
+Post conditions:
+- Console logs the title sent to the backend
+- Google Books API returns matching results
+- 5 book cards are shown on the page 
+- If "Use this book" is clicked:
+      - The review form is filled with the title
+      - 'selectedCover' stores the book cover image
+      - Page changes to the Homepage section
+*/
+//Googe books api
 function setupBookSearch() {
     //Elements to search 
     const searchForm = document.getElementById("searchForm");
@@ -145,7 +175,7 @@ function setupBookSearch() {
             .then(data => {
                 searchResults.innerHTML = "";
 
-                //error promtp if no results are found 
+                //error prompt if no results are found 
                 if (!data.items) {
                     searchMessage.textContent = "No books found.";
                     return;
@@ -232,9 +262,21 @@ function setupBookSearch() {
 }
 setupBookSearch();
 
+/* 
+Preconditions:
+- User enters: title, review text, rating, and completed date
+- User clicks the 'publish button'
 
+Post conditions:
+- If any required input is empty then an error message appears
+- If all user inputs are filled:
+      - A review object is created
+      - The review is saved in localStorage
+      - All input boxes are cleared
+      - "Review published!" message is shown
+      - Previous Reviews page updates with the new review
+*/
 //publish review 
-
 function setupPublishReview() {
     const publishBtn = document.getElementById("publishButton");
     
@@ -283,9 +325,16 @@ function setupPublishReview() {
 setupPublishReview();
 
 
-// Save Review (in users loacal storage)
+/* 
+Preconditions:
+- Function is called with a complete review object
 
-//Saves any review into local storage 
+Post conditions:
+- Review is added to the existing localStorage array
+- Updated array is saved back into "goodbooks_reviews"
+*/
+
+// Save Review (in users loacal storage)
 function saveReview(review) {
 
     // Show reviews saved from previous sessions first 
@@ -298,6 +347,15 @@ function saveReview(review) {
     localStorage.setItem("goodbooks_reviews", JSON.stringify(reviews));
 }
 
+/* 
+Preconditions:
+- localStorage may or may not contain "goodbooks_reviews"
+
+Post conditions:
+- Returns an array of saved reviews
+- If none exist it returns an empty array
+*/
+
 //Load the reviews from local storage 
 function loadReviews() {
 
@@ -306,9 +364,18 @@ function loadReviews() {
     return data ? JSON.parse(data) : [];
 }
 
+/* 
+Preconditions:
+- User opens the Previous Reviews page
+- loadReviews() returns an array
+
+Post conditions:
+- If no reviews then it displays "No reviews yet."
+- If reviews exist then it creates a review card for each one
+- Each card displays: cover, title, date, rating, and text
+*/
 
 // Previous reviews (Displayed)
-
 function showSavedReviews() {
     const list = document.getElementById("reviewsList");
 
@@ -372,6 +439,3 @@ function showSavedReviews() {
 
 //When pages loads, always show the saved reviews 
 showSavedReviews();
-
-// line below is commented out so application can run in browser
-// export { USER, PASS };
