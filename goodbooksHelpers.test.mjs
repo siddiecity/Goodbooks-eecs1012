@@ -24,7 +24,7 @@ describe("isLoginValid", () => {
 // Test case 2: Google Books URL logic
 describe("buildGoogleBooksUrl", () => {
   it("encodes the search term and builds the correct Google Books URL", () => {
-    const term = "Harry Potter & Magic";
+    const term = "Divergent";
 
     const url = buildGoogleBooksUrl(term);
 
