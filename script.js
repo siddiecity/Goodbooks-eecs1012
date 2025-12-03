@@ -439,3 +439,6 @@ function showSavedReviews() {
 
 //When pages loads, always show the saved reviews 
 showSavedReviews();
+
+// commented so that it can run in browser
+// export { USER, PASS };
