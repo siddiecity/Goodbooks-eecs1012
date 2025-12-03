@@ -75,7 +75,6 @@ Muhammadmehdi :
 --------------
 	- I joined the group late, so I had to quickly catch up on the work that was already done and understand the structure of the project.
 	- Faced issues with setting up Vitest on my device and understanding how to properly link the file paths for the test cases.
-	- I had difficulty figuring out how to write meaningful test cases that actually tested the logic instead of just repeating it.
 	- Editing the video took longer than expected because I had to make sure everything was clear, short, and matched what we were required to show.
 ------------------------------------------------------------------------------------------------
 
