@@ -1,10 +1,10 @@
-/* Apply box size and font globally*/
+/*wildcard so that it applies to everything*/
 * {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
-/* Class that hides pages when not clicked */
+/*  */
 .hidden {
   display: none !important;
 }
