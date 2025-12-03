@@ -6,7 +6,7 @@ Student #: 222035521
 Email: andrab04@my.yorku.ca 
 Work contributed:
 	•HTML & CSS of the Login Page, Homepage, Previous Reviews Page, and part of Search Books Page
-	•Vitest test cases
+	•Part of the vitest test cases
 	•Video Outline 
 	•Report Outline ------------------------------------------------------------------------------------------------
 
