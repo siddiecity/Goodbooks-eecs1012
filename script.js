@@ -338,3 +338,6 @@ function showSavedReviews() {
 
 //When pages loads, always show the saved reviews 
 showSavedReviews();
+
+// comment the line below when using it in browser
+export {USER, PASS};
