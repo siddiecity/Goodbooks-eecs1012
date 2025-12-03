@@ -10,15 +10,13 @@
 
 <body>
 
-    <!-- LOGIN PAGE (shown first) -->
+    <!-- for the login page -->
     <div id="loginSection">
         <header>
-            <!-- Blue overlay + background image -->
             <div class="blueOverlay">
                 <img class="background" src="login_background.jpg" alt="Background Image">
             </div>
 
-            <!-- Top header image + logo row (same as original login) -->
             <img class="headerPic" src="books_header.JPG" alt="Blue Books">
 
             <div class="logo">
@@ -27,7 +25,6 @@
             </div>
         </header>
 
-        <!-- Centered login box -->
         <div class="loginBox">
             <form id="login-form">
                 <h1>Welcome Back!</h1>
@@ -49,38 +46,31 @@
                     <button id="loginButton" type="button">Login</button>
                 </div>
 
-                <!-- Login error message -->
                 <p id="loginMessage" class="message"></p>
-                <!-- Login hint (shows after 3 failed attempts) -->
+                <!-- Hint will be given after 3 failed attempts -->
                 <p id="loginHint" class="hint"></p>
             </form>
         </div>
 
-        <!-- Bottom colour block (footer stripe) -->
         <footer>
             <div class="colourBlock loginFooterBlock"></div>
         </footer>
     </div>
 
-    <!-- MAIN APP (hidden until login succeeds) -->
+    <!-- HomePage main section is hidden (only visible once valid username & password inputted -->
     <div id="mainSection" class="hidden">
 
-        <!-- Header (background + logout button) -->
         <header>
-            <!-- Logout button in top-right -->
             <button id="logoutButton" class="logout">Sign Out</button>
 
-            <!-- Blue overlay + background image -->
             <div class="blueOverlay">
                 <img class="background" src="login_background.jpg" alt="Background Image">
             </div>
 
-            <!-- Top navy bar -->
             <div class="colourBlock mainHeaderBlock"></div>
         </header>
 
         <div class="page">
-            <!-- SIDEBAR (GoodBooks style) -->
             <div class="sidebar">
                 <h2>GoodBooks Review</h2>
 
@@ -100,7 +90,7 @@
                 </ul>
             </div>
 
-            <!-- HOME / WRITE REVIEW SECTION -->
+            <!-- Home Page review section -->
             <main id="homeSection" class="main content-section">
                 <div class="ratesBox">
                     <label for="ratingInput">Star Rating:</label>
@@ -139,11 +129,10 @@
                 <p id="publishMessage" class="message"></p>
             </main>
 
-            <!-- SEARCH BOOKS SECTION -->
+            <!-- Search Books Page -->
             <main id="searchSection" class="search-section content-section hidden">
                 <h1 class="page-title">Search Books</h1>
 
-                <!-- Search form Google Books -->
                 <form id="searchForm">
                     <div class="search-box">
                         <input type="text" id="searchInput"
@@ -152,23 +141,22 @@
                     </div>
                 </form>
 
-                <!-- Error message / No results -->
+                <!-- Message will appear if an error occurs -->
                 <p id="searchMessage" class="message"></p>
 
-                <!-- Results injected by script.js -->
                 <section id="searchResults" class="search-results"></section>
             </main>
 
-            <!-- PREVIOUS REVIEWS SECTION -->
+            <!-- Previous Reviews Page -->
             <main id="previousSection" class="main content-section hidden">
                 <h1 class="page-title">Previous Reviews</h1>
                 <!-- Cards injected by showSavedReviews() -->
                 <div id="reviewsList"></div>
             </main>
 
-        </div> <!-- end .page -->
+        </div> 
 
-    </div> <!-- end #mainSection -->
+    </div> 
 
 </body>
 </html>
