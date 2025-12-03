@@ -1,325 +1,613 @@
-/* Apply box size and font globally*/
+/* GLOBAL RESET + BASICS */
 * {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
-/* Class that hides pages when not clicked */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #E8DFD6;
+    font-family: 'Times New Roman', Times, serif;
+    opacity: 0.95;
+}
+
+/* Class that hides pages when not clicked (for script.js) */
 .hidden {
-  display: none !important;
+    display: none !important;
 }
 
-label {
-  display: block;
-  margin-top: 10px;
+/* GENERIC TEXT */
+h1, h2, h3, label, p {
+    color: #1c2c45;
 }
 
-/* full screen login page */
-.full-login {
-  width: 100%;
+/* BACKGROUND + OVERLAYS SHARED */
 
-  /* fills the entire screen */
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  /* centers vertically */
-  justify-content: center;
-
-  /* center horizontally */
-  align-items: center;
-  background: white;
-;
+.background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 45%;
+    object-fit: cover;
 }
 
-/* Login box container */
-.login-box {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #000000;
-  max-width: 320px;
-  width: 100%;
+/* Login overlay: darker navy, 40% */
+#loginSection .blueOverlay {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 40%;
+    background-color: #0c2751;
 }
 
-.login-box h2 {
-  margin-top: 0;
+/* Main app overlay: slightly lighter navy, 50% */
+#mainSection .blueOverlay {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 50%;
+    background-color: #2D3E5A;
 }
 
-/* Style of input inside the login box */
-.login-box input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+/* Colour blocks for header/footer */
+
+/* Bottom colour block on LOGIN page */
+.loginFooterBlock {
+    position: relative;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    background-color: #2D3E5A;
+    height: 100px;
+    width: 100%;
+    opacity: 0.9;
+    z-index: 10;
+}
+
+/* Top colour block on MAIN app header */
+.mainHeaderBlock {
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    background-color: #2D3E5A;
+    height: 80px;
+    width: 100%;
+    opacity: 0.9;
+    z-index: 0;
+}
+
+/* ============================
+   LOGIN PAGE STYLING
+   ============================ */
+
+#loginSection {
+    min-height: 100vh;
+}
+
+/* Top header image on login */
+.headerPic {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 120px;
+    width: 100%;
+    z-index: 0;
+}
+
+/* Logo row */
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    margin-top: 5px;
+    z-index: 10;
+}
+
+.logoPic {
+    height: 90px;
+    width: 90px;
+    padding: 10px;
+    border-radius: 35%;
+    opacity: 70%;
+    margin-left: 10px;
+    z-index: 10;
+}
+
+#name {
+    font-family: 'Times New Roman', Times, serif;
+    color: #273955;
+    z-index: 10;
+}
+
+/* Login form box */
+.loginBox {
+    position: relative;
+    width: 35%;
+    min-width: 280px;
+    margin-top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background-color: #c9c7c27a;
+    border-radius: 2%;
+    border: 2px solid #273955;
+}
+
+/* Labels inside login */
+.loginBox label {
+    display: block;
+    width: 70%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Inputs on login */
+.loginBox input[type="text"],
+.loginBox input[type="password"] {
+    font-family: 'Times New Roman', Times, serif;
+    color: #1c2c45;
+    margin-bottom: 15px;
+    width: 80%;
+    padding: 5px;
+    border-radius: 4px;
+    border: 2px solid #273955;
+    background-color: rgb(228, 227, 227);
 }
 
 /* Login button */
-.login-box button {
-  margin-top: 15px;
-  width: 100%;
-  padding: 10px;
-  background-color: #4b7bec;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+#loginButton {
+    margin-top: 10px;
+    background-color: #8c94a2;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #1c2c45;
+    width: 50%;
+    height: 30px;
+    font-size: 14px;
+    border: 2px solid #273955;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 /* Login button hover effect */
-.login-box button:hover {
-  background-color: #3867d6;
+#loginButton:hover {
+    background-color: #a8b0be;
 }
 
 /* Wrong password red border */
 input.input-error {
-  border: 2px solid red !important;
+    border: 2px solid rgb(165, 12, 12) !important;
 }
 
 /* Login messages */
 .message {
-  color: #333;
-  margin-top: 10px;
+    color: #333;
+    margin-top: 10px;
 }
 
 .hint {
-  color: #888;
-  font-size: 0.9em;
+    color: #888;
+    font-size: 0.9em;
 }
 
-
-/* Homepage, after logging in  */
+/* ============================
+   MAIN APP (AFTER LOGIN)
+   ============================ */
 
 #mainSection {
-  height: 100vh;
-  display: flex;
+    min-height: 100vh;
 }
 
-#fullPage {
-  display: flex;
-  height: 100%;
-  width: 100%;
+#mainSection .page {
+    padding-top: 100px; /* space equal to/exceeding your header height */
+    position: relative;
+    z-index: 1;
 }
 
-
-/* menu (left side navigation) */
-#sidebar {
-  width: 220px;
-  background-color: #222f3e;
-  color: white;
-  padding: 20px;
+/* Logout button (top-right, like original header) */
+#logoutButton {
+    background-color: rgba(172, 187, 215, 0.6);
+    padding: 7px 20px 7px;
+    border-radius: 5px;
+    border: 2px solid rgba(72, 103, 152, 0.4);
+    height: 40px;
+    width: 20vh;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color: #152238;
+    font-size: 15px;
+    text-align: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    cursor: pointer;
 }
 
-/* Profile section inside menu */
-.profile-section {
-  text-align: center;
-  margin-bottom: 20px;
+#logoutButton:hover {
+    background-color: #94a5c2;
 }
 
-/* Profile picture size */
-.profile-picture {
-  width: 80px;
-  height: 80px;
-
-  /* makes it a circle */
-  border-radius: 50%;
-  object-fit: cover;
+/* PAGE WRAPPER */
+.page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
 }
 
-#profileName {
-  margin: 0;
+/* ============================
+   SIDEBAR (GOODBOOKS STYLE)
+   ============================ */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    width: 40vh;
+    height: 100vh;
+    box-sizing: border-box;
+    border: 3px solid rgba(45, 62, 90, 0.4);
+    background-color: rgba(63, 85, 120, 0.4);
+    text-align: center;
+    padding-top: 20px;
 }
 
-/* Menu - Navigation buttons */
+.sidebar h2 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #1c2c45;
+    margin-top: 0;
+}
+
+.userPhoto {
+    height: 20%;
+    width: 60%;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 1px solid #182945;
+}
+
+.sidebar h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #1c2c45;
+    margin-bottom: 40px;
+    padding: 5px;
+}
+
+/* Sidebar menu list */
+.sections {
+    border-top: 3px solid rgba(45, 62, 90, 0.4);
+    border-bottom: 3px solid rgba(45, 62, 90, 0.4);
+    padding: 20px;
+    margin: 0;
+}
+
+.sections li {
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* Nav buttons styled like links */
 .nav-button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #576574;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: left;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    color: #1c2c45;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.nav-button:hover {
-  background-color: #8395a7;
+/* ============================
+   HOME / WRITE REVIEW SECTION
+   ============================ */
+
+.main {
+    position: relative;
+    margin-left: 50vh;
+    margin-top: 10vh;
+    width: 60vh;
 }
 
-/* Logout button color / hover effect */
-.logout {
-  margin-top: 30px;
-  background-color: #ee5253;
+/* Rating box */
+.ratesBox {
+    position: relative;
+    background-color: rgba(63, 85, 120, 0.4);
+    padding: 7px 20px 7px;
+    width: 25vh;
+    border-radius: 10px;
+    border: 2px solid rgba(45, 62, 90, 0.4);
+    margin-bottom: 20px;
 }
 
-.logout:hover {
-  background-color: #c0392b;
+/* Review main box */
+.reviewBox {
+    position: relative;
+    background-color: rgba(63, 85, 120, 0.4);
+    padding: 7px 20px 7px;
+    border-radius: 10px;
+    border: 2px solid rgba(45, 62, 90, 0.4);
+    width: 110vh;
+    height: 40vh;
 }
 
-
-/* Main content - right side */
-#mainContent {
-
-  /* fills the remaining space */
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-  background-color: #f5f5f5;
+/* Book title input */
+.bookTitle input {
+    font-family: 'Times New Roman', Times, serif;
+    color: #1c2c45;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 97%;
+    padding: 7px;
+    border-radius: 4px;
+    border: 2px solid rgba(45, 62, 90, 0.7);
+    background-color: rgb(231, 235, 243);
 }
 
-/* Content box for each section */
-.content-section {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+/* Labels */
+label {
+    font-family: 'Times New Roman', Times, serif;
+    color: #1c2c45;
 }
 
-.content-section h2 {
-  margin-top: 0;
+/* Date input */
+.date input {
+    font-family: 'Times New Roman', Times, serif;
+    color: #1c2c45;
+    font-weight: bold;
+    border: 2px solid rgba(45, 62, 90, 0.7);
+    border-radius: 4px;
+    background-color: rgb(231, 235, 243);
 }
 
-/* Inputs shared across sections */
-input[type="text"],
-textarea,
-select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+/* Comment textarea */
+.commentBox textarea {
+    width: 97%;
+    min-height: 23vh;
+    margin-top: 20px;
+    border: 2px solid rgba(45, 62, 90, 0.7);
+    border-radius: 4px;
+    background-color: rgb(231, 235, 243);
+    padding: 7px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #05142b;
+    resize: vertical;
 }
 
+/* Star rating select */
+#ratingInput {
+    font-family: 'Times New Roman', Times, serif;
+    color: #1c2c45;
+    font-weight: bold;
+    border: 2px solid rgba(45, 62, 90, 0.7);
+    border-radius: 4px;
+    background-color: rgb(231, 235, 243);
+    padding: 5px;
+    width: 100%;
+}
 
-/* Publish Review button */
+/* Publish button (same feel as original) */
 #publishButton {
-  margin-top: 15px;
-  padding: 10px 15px;
-  background-color: #4b7bec;
-  color: white;
-  border: none;
-  border-radius: 4px;
+    margin-left: 85vh;
+    margin-top: 10px;
+    background-color: rgba(63, 85, 120, 0.6);
+    padding: 7px 20px 7px;
+    border-radius: 5px;
+    border: 2px solid rgba(45, 62, 90, 0.4);
+    height: 45px;
+    width: 25vh;
+    font-family: 'Times New Roman', Times, serif;
+    color: #101d31;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
 }
 
 #publishButton:hover {
-  background-color: #3867d6;
+    background-color: rgba(63, 85, 120, 0.9);
 }
 
-#dateCompletedInput {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+/* ============================
+   SEARCH SECTION
+   ============================ */
+
+.search-section {
+    position: relative;
+    margin-left: 50vh;  /* space for sidebar */
+    margin-right: 5vh;
+    box-sizing: border-box;
+    background-color: rgba(63, 85, 120, 0.0); /* transparent, content boxes handle bg */
 }
 
-
-/* Search results */
-#searchResults {
-  margin-top: 15px;
+.page-title {
+    font-family: 'Times New Roman', Times, serif;
+    color: #05142b;
+    margin-bottom: 20px;
 }
 
-.search-btn{
-  margin-top: 8px;
-  padding: 5px 10px;
-  background-color: #4b7bec;
-  color: white;
-  border: none;
-  border-radius: 4px;
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
 }
 
+/* Search input */
+#searchInput {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 20px;
+    border: 2px solid rgba(45, 62, 90, 0.7);
+    background-color: rgb(231, 235, 243);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #05142b;
+}
+
+/* Search button */
+#searchButton,
+.search-btn {
+    padding: 9px 20px;
+    border-radius: 20px;
+    border: 2px solid rgba(45, 62, 90, 0.7);
+    background-color: rgba(63, 85, 120, 0.75);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1c2c45;
+    cursor: pointer;
+}
+
+#searchButton:hover,
 .search-btn:hover {
-  background-color: #3867d6;
+    background-color: rgba(63, 85, 120, 0.9);
 }
 
-/* Layout of all search result cards */
+.search-results {
+    margin-top: 10px;
+}
+
+/* One book result card */
 .book-result {
-  display: flex;
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  background-color: #fafafa;
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 2px solid rgba(45, 62, 90, 0.7);
+    background-color: rgba(231, 235, 243, 0.95);
+    margin-bottom: 15px;
 }
 
+/* Book cover */
 .book-result img {
-  width: 80px;
-  height: auto;
-  margin-right: 10px;
+    width: 90px;
+    height: 130px;
+    border-radius: 4px;
+    background-color: rgb(200, 210, 226);
+    border: 2px solid rgba(45, 62, 90, 0.7);
+    flex-shrink: 0;
 }
 
+/* Book info container */
 .book-info {
-  flex: 1;
+    flex: 1;
 }
 
+/* Classes set by script.js for search results */
 .book-title {
-  font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #05142b;
+    margin: 0 0 5px 0;
+    font-weight: bold;
 }
 
 .book-authors {
-  font-size: 0.9em;
-  color: #555;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #1c2c45;
+    margin: 0 0 8px 0;
 }
 
 .book-description {
-  font-size: 0.9em;
-  margin-top: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    color: #05142b;
+    line-height: 1.4;
 }
 
-.book-result button{
-  margin-top: 8px;
-  padding: 5px 10px;
-  background-color: #4b7bec;
-  color: white;
-  border: none;
-  border-radius: 4px;
+/* "Use this book" button in search results */
+.use-book-btn {
+    margin-top: 8px;
+    padding: 5px 10px;
+    background-color: rgba(63, 85, 120, 0.8);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    cursor: pointer;
 }
 
-.book-result button:hover {
-  background-color: #3867d6;
+.use-book-btn:hover {
+    background-color: rgba(63, 85, 120, 1);
 }
 
-/* Previous reviews */
+/* ============================
+   PREVIOUS REVIEWS SECTION
+   ============================ */
 
+#previousSection {
+    margin-left: 50vh;
+    width: 110vh;
+}
+
+/* Review cards created by showSavedReviews() */
 .review-card {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  background-color: #fafafa;
-  display: flex;
+    border: 2px solid rgba(45, 62, 90, 0.7);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background-color: rgba(231, 235, 243, 0.95);
+    display: flex;
 }
 
 /* Book cover in previous reviews */
 .review-cover {
-  width: 80px;
-  height: auto;
-  margin-right: 10px;
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 2px solid rgba(45, 62, 90, 0.7);
+    background-color: rgb(200, 210, 226);
 }
 
+/* Review text details */
 .review-details {
-  flex: 1;
+    flex: 1;
 }
 
 .review-title {
-  font-weight: bold;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: #05142b;
 }
 
 .review-date {
-  font-size: 0.9em;
-  color: #555;
-  margin-top: 4px;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 4px;
 }
 
 .review-rating {
-  margin-top: 4px;
-  
-  /* yellow stars */
-  color: #f1c40f;
+    margin-top: 4px;
+    color: #f1c40f; /* yellow stars */
 }
 
 .review-text {
-  margin-top: 8px;
+    margin-top: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #05142b;
 }

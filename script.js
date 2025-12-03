@@ -18,6 +18,33 @@ const passwordInput = document.getElementById("passwordInput");
 const loginMessage = document.getElementById("loginMessage");
 const loginHint = document.getElementById("loginHint");
 
+//URL where we will send our data
+const apiUrl = 'http://localhost:8080/booktitle';
+
+//This function will send the searched book title to the back end.
+function sendResultTitle( title ) {
+console.log("sendResultTitle() WAS CALLED with:", title);
+
+  const url = apiUrl + '?title=' + encodeURIComponent(title);
+  fetch(url).then(response => {
+    //If there server reports a problem, throw an error!
+    if (!response.ok) { 
+      throw new Error('Network response was not ok');
+    }
+    //If not, send the response down the line.
+    return response.json(); 
+  })
+  .then(data => {
+    // Show the server reply
+    console.log("Backend replied:", data);
+  })
+  //Display any unexpected errors 
+  .catch(error => {
+    console.error('Error:', error); 
+  });
+}
+
+
 loginButton.addEventListener("click", function () {
     //reads the users input for login credentials 
     const username = usernameInput.value;
@@ -88,10 +115,16 @@ function setupBookSearch() {
     const searchInput = document.getElementById("searchInput");
     const searchMessage = document.getElementById("searchMessage");
     const searchResults = document.getElementById("searchResults");
+    
 
     //Run when the user submits in the search form 
     searchForm.addEventListener("submit", function (event) {
         event.preventDefault(); // stops the page from refreshing else it will take you to login 
+        
+        // 
+        let query = document.getElementById("searchInput").value.trim();
+        sendResultTitle(query);
+
 
         const text = searchInput.value;
         //resets old searches/messages 
@@ -192,10 +225,11 @@ function setupBookSearch() {
                     searchResults.appendChild(card);
                 }
             })
+            .catch(error => {
+                 console.error('Search error:', error);
             });
     });
 }
-
 setupBookSearch();
 
 

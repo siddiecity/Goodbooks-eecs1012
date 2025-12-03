@@ -1,0 +1,87 @@
+------------------------------------------------------------------------------------------------
+Roles:
+-------
+Name: Andra Burs
+Student #: 222035521
+Email: andrab04@my.yorku.ca 
+Work contributed:
+	•HTML & CSS of the Login Page, Homepage, Previous Reviews Page, and part of Search Books Page
+	•Vitest test cases
+	•Video Outline & Report Outline ------------------------------------------------------------------------------------------------
+
+Name: Sidrah  Jamil
+Student #: 218231670
+Email: sidrah77@my.yorku.ca
+Work contributed:
+	•Javascript portions 
+	•Integration of external & internal APIs
+	•Creating local storage for book reviews 
+	•The server side & backend using express
+	•Dynamic page Interactions
+	•Report Outline & Formatting (challenges, notes & roles)  ------------------------------------------------------------------------------------------------
+
+Name: Muhammadmehdi Rashid
+Student #: 222584999
+Email: marashid@my.yorku.ca 
+*Note: Joined Group Late (due to issues with previous group- TA and professor were notified)
+Work contributed: 
+	•Part of the HTML and CSS of the Search Books Page
+	•Vitest test cases
+	•Video compilation/editing
+	•Report Outline ------------------------------------------------------------------------------------------------
+Things to keep in mind / Notes:
+
+	- Login Credentials: User: “reader” Password: “1234”
+	- Running the server: Input “node server.js” in the terminal and run the code. When a book is 		searched, Terminal will display “Book title”
+
+------------------------------------------------------------------------------------------------
+Challenges: 
+------------
+
+General challenges:
+--------------------
+
+	- Team member (Sidrah) getting surgery and not able to contribute while recovering (set project time line a bit behind) 
+	- Assigning work for new team member (Muhammadmehdi) as it had been divided up beforehand and most of it was already completed
+	- Finding a time where all of us were available at the same time due to all 3 of us being in different majors.
+	- Difficulty understanding grading criteria by having different project requirements on the project instructions and submission page
+
+------------------------------------------------------------------------------------------------
+
+Specific:
+---------
+Andra :
+-------
+	- Figuring out a way to test an api: there were many ways on the Internet but required a lot of packages that would not appear when installed on Visual Studio Code
+	 - No matter what I tried, the packages would not appear at all so it took a lot of time to figure out what went wrong when installing 
+	- However, found out about mock test cases- where it essentially re-creates the logic in the test cases (i.e. using the same variables and flow) to see how it should work when user requests information on the front-end
+------------------------------------------------------------------------------------------------
+
+Sidrah :
+-------
+	- Learning about (external & internal) Api’s and how to integrate that in our code, almost all teaching content had their own way of doing so, it wasn't until it was taught that I was able to successfully integrate and build them.
+	- Google APIs and accessing information we needed by learning nested JSON objects was a big and difficult learning curve
+Missing data causing errors/crashing the code (ex. Book author, cover missing) until I learned about ‘fallback values’ 
+	- Syntax/ missing knowledge, (ex. The pages kept going to the login page when I searched something and didn’t know what the issue was until I learned about preventDefault() or saved reviews kept getting deleted when saving new ones because I wasnt loading old reviews first, global variables, DOM updates/manipulation, event listeners inside loops, parent-child functions/structures, etc)
+	- Issues with using and understanding fetch/ Get and its proper structure/ syntax and using it with our code 
+	- Creating a server side and integrating with our code ( it would just not run at times or only show “Listening at http://localhost:8080” or forgetting to return JSON on the server)
+Code breaking constantly (specifically the hidden section portion)  due to wrong order of elements and ‘content-section divs’ being inside the wrong parent containers or missing brackets
+	- Struggling with integrating everyones code together due to different (var,class,ID,etc) names, structure, etc (ex buttons not working properly due to different IDs in JS and HTML)
+	- Trouble figuring out how to store reviews with local storage and learning it only stores text. I had to learn JSON and how to use the 2 together (I ended up converting objects into JSON with JSON.stringify()  and converting them back with JSON.parse())
+	- I wasn't able to fully contribute until I caught up with all the course work, which I fell behind on due to an unexpected surgery
+------------------------------------------------------------------------------------------------
+
+Muhammadmehdi : 
+--------------
+	- I joined the group late, so I had to quickly catch up on the work that was already done and understand the structure of the project.
+	- Faced issues with setting up Vitest on my device and understanding how to properly link the file paths for the test cases.
+	- I had difficulty figuring out how to write meaningful test cases that actually tested the logic instead of just repeating it.
+	- Editing the video took longer than expected because I had to make sure everything was clear, short, and matched what we were required to show.
+------------------------------------------------------------------------------------------------
+
+
+Learning Outcomes: 
+-----------------
+In this project, we learned not only how to apply content discussed in class, but also concepts from resources provided in the lecture slides, to create a functioning client-server application. We were able to improve our set of computing skills, from algorithms to test casing to diagnosing errors within the code. We used fundamental concepts taught throughout the course to create a variety of variables, conditionals, loops, functions, and even learn how to implement an API within the program. We better understood how a user can receive information after it has been requested on the frontend, i.e. through our Search Books page. We learned more about how HTML, CSS, and Javascript interact with each other, becoming more familiar with the proper syntax and semantics. Most importantly, our collaboration and communication skills have greatly improved, as we slowly navigated our way to create this online book review platform as a team
+
+------------------------------------------------------------------------------------------------

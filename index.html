@@ -1,125 +1,174 @@
 <!DOCTYPE html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8" />
-    <title>Goodbooks Review</title>
+    <title>GoodBooks Review</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer="true"></script>
+</head>
 
-  <body>
-    <!-- login 'page'  -->
-    <div id="loginSection" class="full-login">
-      <h1>Goodbooks Review</h1>
+<body>
 
-      <!-- login box container  -->
-      <div class="login-box">
-        <h2>Login</h2>
+    <!-- LOGIN PAGE (shown first) -->
+    <div id="loginSection">
+        <header>
+            <!-- Blue overlay + background image -->
+            <div class="blueOverlay">
+                <img class="background" src="login_background.jpg" alt="Background Image">
+            </div>
 
-        <!-- Username/Password input -->
-        <label>Username:</label>
-        <input type="text" id="usernameInput" />
+            <!-- Top header image + logo row (same as original login) -->
+            <img class="headerPic" src="books_header.JPG" alt="Blue Books">
 
-        <label>Password:</label>
-        <input type="password" id="passwordInput" />
+            <div class="logo">
+                <img class="logoPic" src="booklogo.JPG" alt="Book Logo">
+                <h3 id="name">GoodBooks Review</h3>
+            </div>
+        </header>
 
-        <!-- Login button -->
-        <button id="loginButton">Login</button>
+        <!-- Centered login box -->
+        <div class="loginBox">
+            <form id="login-form">
+                <h1>Welcome Back!</h1>
 
-        <!-- Login error message -->
-        <p id="loginMessage" class="message"></p>
-        <!-- Login hint (shoes after 3 failed attempts) -->
-        <p id="loginHint" class="hint"></p>
-      </div>
+                <div class="input">
+                    <label for="usernameInput">Username*</label>
+                    <input type="text" id="usernameInput" name="username" placeholder="Username" required>
+                </div>
+
+                <div class="input">
+                    <label for="passwordInput">Password*</label>
+                    <input type="password" id="passwordInput" name="password"
+                           placeholder="Password"
+                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                           required>
+                </div>
+
+                <div class="button">
+                    <button id="loginButton" type="button">Login</button>
+                </div>
+
+                <!-- Login error message -->
+                <p id="loginMessage" class="message"></p>
+                <!-- Login hint (shows after 3 failed attempts) -->
+                <p id="loginHint" class="hint"></p>
+            </form>
+        </div>
+
+        <!-- Bottom colour block (footer stripe) -->
+        <footer>
+            <div class="colourBlock loginFooterBlock"></div>
+        </footer>
     </div>
 
-    <!-- Homepage (Hidden until you login) -->
+    <!-- MAIN APP (hidden until login succeeds) -->
     <div id="mainSection" class="hidden">
 
-      <div id="fullPage">
+        <!-- Header (background + logout button) -->
+        <header>
+            <!-- Logout button in top-right -->
+            <button id="logoutButton" class="logout">Sign Out</button>
 
-        <!-- Navigation menu -->
-        <div id="sidebar"> 
+            <!-- Blue overlay + background image -->
+            <div class="blueOverlay">
+                <img class="background" src="login_background.jpg" alt="Background Image">
+            </div>
 
-          <!-- Profile picture + name -->
-          <div class="profile-section">
-            <img src="https://i.pinimg.com/1200x/14/71/d6/1471d61510a9664d89f7e2f1b3aad021.jpg" class="profile-picture"/>
-            <p id="profileName">Syntax Sisters</p>
+            <!-- Top navy bar -->
+            <div class="colourBlock mainHeaderBlock"></div>
+        </header>
 
-            <!-- Buttons to navigate between pages -->
-         </div>
-          <button class="nav-button" data-target="homeSection">Home</button>
-          <button class="nav-button" data-target="searchSection"> Search Books </button>
-          <button class="nav-button" data-target="previousSection"> Previous Reviews </button>
-          <!-- Logout button to return to login page -->
-          <button id="logoutButton" class="nav-button logout">Logout</button>
-        </div>
+        <div class="page">
+            <!-- SIDEBAR (GoodBooks style) -->
+            <div class="sidebar">
+                <h2>GoodBooks Review</h2>
 
-        <!-- Mainpage content -->
-        <div id="mainContent">
+                <img class="userPhoto" src="userphoto.JPG" alt="User Photo">
+                <h3>Syntax_sisters</h3>
 
-          <!-- Homepage / Write a review -->
-          <div id="homeSection" class="content-section">
+                <ul class="sections">
+                    <li>
+                        <button class="nav-button" data-target="homeSection">Homepage</button>
+                    </li>
+                    <li>
+                        <button class="nav-button" data-target="previousSection">Previous Reviews</button>
+                    </li>
+                    <li>
+                        <button class="nav-button" data-target="searchSection">Search Books</button>
+                    </li>
+                </ul>
+            </div>
 
-            <h2>Write a Review</h2>
-            <label>Book Title:</label>
+            <!-- HOME / WRITE REVIEW SECTION -->
+            <main id="homeSection" class="main content-section">
+                <div class="ratesBox">
+                    <label for="ratingInput">Star Rating:</label>
+                    <select id="ratingInput">
+                        <option value="">Select rating</option>
+                        <option value="1">1 ★</option>
+                        <option value="2">2 ★★</option>
+                        <option value="3">3 ★★★</option>
+                        <option value="4">4 ★★★★</option>
+                        <option value="5">5 ★★★★★</option>
+                    </select>
+                </div>
 
-            <input type="text" id="bookTitleInput" />
-            <label>Your Review:</label>
+                <div class="review">
+                    <div class="reviewBox">
+                        <div class="bookTitle">
+                            <input type="text" id="bookTitleInput" name="bookTitle"
+                                   placeholder="Book Title" required>
+                        </div>
 
-            <textarea id="reviewTextInput"></textarea>
-            <label>Date Completed:</label>
+                        <div class="date">
+                            <label for="dateCompletedInput">Date Completed: </label>
+                            <input type="date" id="dateCompletedInput" name="dateCompleted">
+                        </div>
 
-            <input type="date" id="dateCompletedInput" />
-            <label for="ratingInput">Star Rating:</label>
+                        <div class="commentBox">
+                            <textarea id="reviewTextInput"
+                                      placeholder="Enter review here..."></textarea>
+                        </div>
+                    </div>
+                </div>
 
-            <select id="ratingInput">
-              <option value="">Select rating</option>
-              <option value="1">1 ★</option>
-              <option value="2">2 ★★</option>
-              <option value="3">3 ★★★</option>
-              <option value="4">4 ★★★★</option>
-              <option value="5">5 ★★★★★</option>
-            </select>
+                <p>
+                    <button id="publishButton">Publish</button>
+                </p>
+                <p id="publishMessage" class="message"></p>
+            </main>
 
-            <!-- Publish review button -->
-            <button id="publishButton">Publish Review</button>
+            <!-- SEARCH BOOKS SECTION -->
+            <main id="searchSection" class="search-section content-section hidden">
+                <h1 class="page-title">Search Books</h1>
 
-            <!-- Publishing confirmation message -->
-            <p id="publishMessage" class="message"></p>
-          </div>
+                <!-- Search form Google Books -->
+                <form id="searchForm">
+                    <div class="search-box">
+                        <input type="text" id="searchInput"
+                               placeholder="Search books... ex. Divergent">
+                        <button id="searchButton" class="search-btn" type="submit">Search</button>
+                    </div>
+                </form>
 
-          <!-- Search Books  -->
-          <div id="searchSection" class="content-section hidden">
-            <h2>Search for a Book</h2>
+                <!-- Error message / No results -->
+                <p id="searchMessage" class="message"></p>
 
-            <!-- Search form  -->
-            <form id="searchForm">
-              <input type="text" id="searchInput" placeholder="Search books... ex. Divergent" />
-              <button id="searchButton" class="search-btn">Search</button>
-            </form>
+                <!-- Results injected by script.js -->
+                <section id="searchResults" class="search-results"></section>
+            </main>
 
-            <!-- Error messages or 'no books found' -->
-            <p id="searchMessage"></p>
+            <!-- PREVIOUS REVIEWS SECTION -->
+            <main id="previousSection" class="main content-section hidden">
+                <h1 class="page-title">Previous Reviews</h1>
+                <!-- Cards injected by showSavedReviews() -->
+                <div id="reviewsList"></div>
+            </main>
 
-            <!-- Google books search results  -->
-            <div id="searchResults"></div>
-          </div>
+        </div> <!-- end .page -->
 
-          <!-- Previous reviews -->
-          <div id="previousSection" class="content-section hidden">
+    </div> <!-- end #mainSection -->
 
-            <h2>Your Reviews</h2>
-            <!-- Previous reviews inserted from JS here -->
-            <div id="reviewsList"></div>
-          </div>
-
-          <!-- end of mainContent -->
-        </div>
-
-        <!-- end of fullPage -->
-      </div>
-
-      <!-- end of mainSection -->
-    </div>
-    <script src="script.js"defer="true"></script>
-  </body>
+</body>
 </html>
