@@ -6,14 +6,15 @@ Roles:
 -------
 Name: Andra 
 Work contributed:
+
 	•HTML & CSS of the Login Page, Homepage, Previous Reviews Page, and part of Search Books Page
 	•Part of the vitest test cases
 	•Video Outline 
 	•Report Outline ------------------------------------------------------------------------------------------------
 
 Name: Sidrah  
-Student #: 
 Work contributed:
+
 	•Javascript portions 
 	•Integration of external & internal APIs
 	•Creating local storage for book reviews 
