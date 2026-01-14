@@ -1,7 +1,55 @@
 # Goodbooks-eecs1012
 Group project 
 
-pending completion 
- - 3 Vitest
- - 2–3 page report
- - video
+------------------------------------------------------------------------------------------------
+Roles:
+-------
+Name: Andra 
+Work contributed:
+	•HTML & CSS of the Login Page, Homepage, Previous Reviews Page, and part of Search Books Page
+	•Part of the vitest test cases
+	•Video Outline 
+	•Report Outline ------------------------------------------------------------------------------------------------
+
+Name: Sidrah  
+Student #: 
+Work contributed:
+	•Javascript portions 
+	•Integration of external & internal APIs
+	•Creating local storage for book reviews 
+	•The server side & backend using express
+	•Dynamic page Interactions
+	•Report Outline & Formatting (challenges, notes & roles)  ------------------------------------------------------------------------------------------------
+
+Things to keep in mind / Notes:
+
+	- Login Credentials: User: “reader” Password: “1234”
+	- Running the server: Input “node server.js” in the terminal and run the code. When a book is searched, Terminal will display “Book title”
+------------------------------------------------------------------------------------------------
+
+Specific:
+---------
+Andra :
+-------
+	- Figuring out a way to test an api: there were many ways on the Internet but required a lot of packages that would not appear when installed on Visual Studio Code. No matter what I tried, the packages would not appear at all so it took a lot of time to figure out what went wrong when installing. There were continuous issues with Vitest (would work for a moment and then stop). In the end, I found out about mock test cases- where it essentially re-creates the logic in the test cases (i.e. using the same variables and flow) to see how it should work when user requests information on the front-end. It was difficult to understand how to do vitest mocking because it has a lot of unknown syntax and the weird logic. So I had to try and understand how to make it so that I could understand how the logic/expectations would be presented.
+	- Figuring out how to work with overlays in HTML and CSS. There were issues when I wanted to change the positions from 'absolute' to 'fixed' because it would completely change the layout. I had to learn more about z-index to fix the problem with position because it was the only way for the layout to stay as it was meant to (i.e. like in the wireframes)
+
+------------------------------------------------------------------------------------------------
+
+Sidrah :
+-------
+	- Learning about (external & internal) Api’s and how to integrate that in our code, almost all teaching content had their own way of doing so, it wasn't until it was taught that I was able to successfully integrate and build them.
+	- Google APIs and accessing information we needed by learning nested JSON objects was a big and difficult learning curve
+Missing data causing errors/crashing the code (ex. Book author, cover missing) until I learned about ‘fallback values’ 
+	- Syntax/ missing knowledge, (ex. The pages kept going to the login page when I searched something and didn’t know what the issue was until I learned about preventDefault() or saved reviews kept getting deleted when saving new ones because I wasnt loading old reviews first, global variables, DOM updates/manipulation, event listeners inside loops, parent-child functions/structures, etc)
+	- Issues with using and understanding fetch/ Get and its proper structure/ syntax and using it with our code 
+	- Creating a server side and integrating with our code ( it would just not run at times or only show “Listening at http://localhost:8080” or forgetting to return JSON on the server)
+Code breaking constantly (specifically the hidden section portion)  due to wrong order of elements and ‘content-section divs’ being inside the wrong parent containers or missing brackets
+	- Struggling with integrating everyones code together due to different (var,class,ID,etc) names, structure, etc (ex buttons not working properly due to different IDs in JS and HTML)
+	- Trouble figuring out how to store reviews with local storage and learning it only stores text. I had to learn JSON and how to use the 2 together (I ended up converting objects into JSON with JSON.stringify()  and converting them back with JSON.parse())
+
+Learning Outcomes: 
+-----------------
+In this project, we learned not only how to apply content discussed in class, but also concepts from resources provided in the lecture slides, to create a functioning client-server application. We were able to improve our set of computing skills, from algorithms to test casing to diagnosing errors within the code. We used fundamental concepts taught throughout the course to create a variety of variables, conditionals, loops, functions, and even learn how to implement an API within the program. We better understood how a user can receive information after it has been requested on the frontend, i.e. through our Search Books page. We learned more about how HTML, CSS, and Javascript interact with each other, becoming more familiar with the proper syntax and semantics. Most importantly, our collaboration and communication skills have greatly improved, as we slowly navigated our way to create this online book review platform as a team
+
+------------------------------------------------------------------------------------------------
