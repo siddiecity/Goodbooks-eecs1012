@@ -39,12 +39,12 @@ Andra :
 Sidrah :
 -------
 	- Learning about (external & internal) Api’s and how to integrate that in our code, almost all teaching content had their own way of doing so, it wasn't until it was taught that I was able to successfully integrate and build them.
-	- Google APIs and accessing information we needed by learning nested JSON objects was a big and difficult learning curve
-Missing data causing errors/crashing the code (ex. Book author, cover missing) until I learned about ‘fallback values’ 
+	- Google APIs and accessing information we needed by learning nested JSON objects was a big and difficult learning curve 
+	- Missing data causing errors/crashing the code (ex. Book author, cover missing) until I learned about ‘fallback values’ 
 	- Syntax/ missing knowledge, (ex. The pages kept going to the login page when I searched something and didn’t know what the issue was until I learned about preventDefault() or saved reviews kept getting deleted when saving new ones because I wasnt loading old reviews first, global variables, DOM updates/manipulation, event listeners inside loops, parent-child functions/structures, etc)
 	- Issues with using and understanding fetch/ Get and its proper structure/ syntax and using it with our code 
 	- Creating a server side and integrating with our code ( it would just not run at times or only show “Listening at http://localhost:8080” or forgetting to return JSON on the server)
-Code breaking constantly (specifically the hidden section portion)  due to wrong order of elements and ‘content-section divs’ being inside the wrong parent containers or missing brackets
+	- Code breaking constantly (specifically the hidden section portion)  due to wrong order of elements and ‘content-section divs’ being inside the wrong parent containers or missing brackets
 	- Struggling with integrating everyones code together due to different (var,class,ID,etc) names, structure, etc (ex buttons not working properly due to different IDs in JS and HTML)
 	- Trouble figuring out how to store reviews with local storage and learning it only stores text. I had to learn JSON and how to use the 2 together (I ended up converting objects into JSON with JSON.stringify()  and converting them back with JSON.parse())
 
